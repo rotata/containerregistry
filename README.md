@@ -1,3 +1,24 @@
+# Important Update to Microsoft Container Registry (MCR)!!!! 
+MCR DNS Endpoint Changes for Client Firewall Rules
+
+# Summary: 
+If you have currently configured client firewall rules for MCR using FQDN *.cdn.mscr.io, you will need to change these rules to *.data.mcr.microsoft.com
+
+# When is the change happening:
+On 3/X the new firewall update will be implemented for MCR. You will follow the below steps to incorporate the changes on your firewall:
+# Steps for users to implement this change:
+1.	Update Fire wall rule: For customers who have configured client firewall rules for MCR using *.cdn.mscr.io, add the rule to include *.data.mcr.microsoft.com which will account for regionalized endpoints: eg: westus.data.mcr.microsoft.com. You can implement this change any time prior to the 3/x date.
+2.	Test the new change on 3/x: After communication of the MCR change, test the update by removing the old outbound firewall rule (cdn.mscr.io) and ensure functionality by making a docker pull request to any mcr.microsoft.com image. This will ensure data transfer from the data endpoint. 
+
+# Why are we making this change?
+1.	To support well-known, trusted domains for customers authoring client firewall rules, MCR is moving the root data endpoint from mscr.io to mcr.microsoft.com.
+2.	To ensure consistency between ACR and MCR registry firewall rules – Both the registries will now follow a similar standard:
+[registry].[region.data].[brand]
+
+3.	To standardize MCR region monikers:
+* Old standard: mcrwus0.cdn.mscr.io
+* New standard: westus.data.mcr.microsoft.com
+
 # MCR - Microsoft Container Registry
 MCR (Microsoft Container Registry) is the primary Registry for all Microsoft Published docker images that offers a reliable and trustworthy delivery of container images with a syndicated catalog, while maintaining the quality that customers expect from a  Microsoft product offering. The discovery experience for these images is still maintained on Dockerhub, with the responsibility of servicing the images maintained by MCR, hence MCR does not have its own Catalog UI experience. You can find more details on MCR at this [blog](https://cloudblogs.microsoft.com/opensource/2019/01/17/improved-discovery-experience-microsoft-containers-docker-hub/)
 
