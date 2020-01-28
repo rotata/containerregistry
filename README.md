@@ -11,13 +11,15 @@ On 3/X the new firewall update will be implemented for MCR. You will follow the 
 2.	Test the new change on 3/x: After communication of the MCR change, test the update by removing the old outbound firewall rule (cdn.mscr.io) and ensure functionality by making a docker pull request to any mcr.microsoft.com image. This will ensure data transfer from the data endpoint. 
 
 # Why are we making this change?
-1.	To support well-known, trusted domains for customers authoring client firewall rules, MCR is moving the root data endpoint from mscr.io to mcr.microsoft.com.
-2.	To ensure consistency between ACR and MCR registry firewall rules – Both the registries will now follow a similar standard:
-[registry].[region.data].[brand]
-
-3.	To standardize MCR region monikers:
+1.	To support well-known, trusted domains for customers authoring client firewall rules, MCR is moving the root data endpoint from mscr.io to mcr.microsoft.com
+2.	To standardize MCR region monikers:
 * Old standard: mcrwus0.cdn.mscr.io
 * New standard: westus.data.mcr.microsoft.com
+3.	To ensure consistency between ACR and MCR registry firewall rules – Both the registries will now follow a similar standard:
+[registry].[region.data].[brand]
+
+* Ex:![image](./FirewallRuleEx.PNG)
+
 
 # MCR - Microsoft Container Registry
 MCR (Microsoft Container Registry) is the primary Registry for all Microsoft Published docker images that offers a reliable and trustworthy delivery of container images with a syndicated catalog, while maintaining the quality that customers expect from a  Microsoft product offering. The discovery experience for these images is still maintained on Dockerhub, with the responsibility of servicing the images maintained by MCR, hence MCR does not have its own Catalog UI experience. You can find more details on MCR at this [blog](https://cloudblogs.microsoft.com/opensource/2019/01/17/improved-discovery-experience-microsoft-containers-docker-hub/)
