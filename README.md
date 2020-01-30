@@ -9,7 +9,7 @@ On 3/X the new firewall update will be implemented for MCR. You will follow the 
 # Steps for users to implement this change:
 1.	Update Fire wall rule: For customers who have configured client firewall rules for MCR using *.cdn.mscr.io, add the rule to include *.data.mcr.microsoft.com which will account for regionalized endpoints: eg: westus.data.mcr.microsoft.com. You can implement this change any time prior to the 3/x date.
 2.	Test the new change on 3/x: After communication of the MCR change, test the update by removing the old outbound firewall rule (cdn.mscr.io) and ensure functionality by making a docker pull request to any mcr.microsoft.com image. This will ensure data transfer from the data endpoint. 
-* Ex:![image](./FirewallRuleEx.PNG)
+* Ex:![image](./MCRDNSFirewallRule.PNG)
 
 # Why are we making this change?
 1.	To support well-known, trusted domains for customers authoring client firewall rules, MCR is moving the root data endpoint from mscr.io to mcr.microsoft.com
