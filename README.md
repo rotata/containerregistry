@@ -1,4 +1,4 @@
-# Important Update to Microsoft Container Registry (MCR)!!!! 
+# Important Client Firewall rules update to Microsoft Container Registry (MCR) 
 MCR DNS Endpoint Changes for Client Firewall Rules
 
 # Summary: 
